@@ -25,19 +25,23 @@ export default function Products() {
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <section className="relative py-24 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
+        {/* Animated mesh background */}
+        <div className="absolute inset-0 mesh-gradient opacity-50" />
+        <div className="absolute inset-0 dots-pattern opacity-30" />
+        
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-primary/5 rounded-full animate-float" />
-        <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-accent/5 rounded-lg rotate-45 animate-spin-slow" />
+        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-primary/10 rounded-full animate-float" />
+        <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-accent/10 rounded-lg rotate-45 animate-spin-slow" />
 
-        <div className="container mx-auto px-4 text-center max-w-3xl space-y-8 relative z-10">
-          <div className="inline-block px-6 py-3 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-4 animate-bounce-slow backdrop-blur-sm">
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-8 relative z-10">
+          <div className="inline-block px-6 py-3 bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/30 rounded-full text-sm font-semibold text-primary mb-4 animate-bounce-slow backdrop-blur-sm">
             <Sparkles className="inline h-4 w-4 mr-2 animate-pulse" />
             Premium Shading Solutions
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight animate-fade-in">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-tight animate-fade-in">
             Our <span className="gradient-text inline-block animate-gradient-shift" style={{ backgroundSize: '200% 200%' }}>Products</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -55,34 +59,48 @@ export default function Products() {
             <section
               key={product.id}
               id={product.slug}
-              className={`relative py-24 overflow-hidden ${index % 2 === 0 ? 'bg-background' : 'bg-muted/30'}`}
+              className={`relative py-24 overflow-hidden ${
+                index % 2 === 0 
+                  ? 'bg-gradient-to-br from-background via-primary/5 to-background' 
+                  : 'bg-gradient-to-br from-accent/5 via-background to-accent/5'
+              }`}
             >
-              {/* Decorative background */}
+              {/* Animated background patterns */}
+              <div className="absolute inset-0 dots-pattern opacity-20" />
               {index % 2 === 0 ? (
-                <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+                <>
+                  <div className="absolute top-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+                  <div className="absolute bottom-20 left-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+                </>
               ) : (
-                <div className="absolute bottom-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+                <>
+                  <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" />
+                  <div className="absolute top-20 right-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+                </>
               )}
 
               <div className="container mx-auto px-4 relative z-10">
                 <div ref={ref} className="scroll-reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
                   {/* Image */}
                   <div
-                    className={`group relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 ${
+                    className={`group relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 ${
                       index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'
                     }`}
                   >
+                    {/* Glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-500" />
+                    
                     <img 
                       src={productImages[product.id]} 
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="relative w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     {/* Shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     {/* Floating badge */}
-                    <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full text-sm font-medium animate-bounce-slow">
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-accent backdrop-blur-sm text-primary-foreground px-5 py-2 rounded-full text-sm font-bold animate-bounce-slow shadow-xl">
                       <Sparkles className="inline h-4 w-4 mr-1" />
                       Premium
                     </div>
@@ -107,12 +125,12 @@ export default function Products() {
                       <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
                     </div>
 
-                    <div className="space-y-6 p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/30 transition-all">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Sparkles className="h-5 w-5 text-primary" />
+                    <div className="space-y-6 p-8 rounded-2xl bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-primary transition-all hover:shadow-xl hover:shadow-primary/20">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center">
+                          <Sparkles className="h-6 w-6 text-primary" />
                         </div>
-                        <h3 className="text-xl font-bold font-display">Key Features</h3>
+                        <h3 className="text-2xl font-bold font-display">Key Features</h3>
                       </div>
                       <ul className="space-y-3">
                         {product.features.map((feature, i) => (
@@ -121,10 +139,10 @@ export default function Products() {
                             className="flex items-start space-x-3 group/item hover:translate-x-2 transition-transform"
                             style={{ animationDelay: `${i * 50}ms` }}
                           >
-                            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/20 transition-colors">
+                            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:from-primary/30 group-hover/item:to-accent/20 transition-colors">
                               <Check className="h-4 w-4 text-primary" />
                             </div>
-                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
+                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed">
                               {feature}
                             </span>
                           </li>
@@ -141,7 +159,7 @@ export default function Products() {
                         {product.useCases.map((useCase) => (
                           <span
                             key={useCase}
-                            className="px-4 py-2 rounded-lg bg-muted hover:bg-primary/10 text-sm font-medium border border-border hover:border-primary/30 transition-all hover:scale-105 cursor-default"
+                            className="px-5 py-2.5 rounded-xl bg-gradient-to-br from-primary/10 to-accent/5 hover:from-primary/20 hover:to-accent/10 text-sm font-semibold border-2 border-primary/20 hover:border-primary transition-all hover:scale-105 cursor-default shadow-lg"
                           >
                             {useCase}
                           </span>

@@ -86,20 +86,21 @@ export default function Home() {
       <Hero />
 
       {/* Featured Products */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <section className="py-24 bg-gradient-to-br from-background via-primary/5 to-accent/5 relative overflow-hidden">
+        {/* Animated mesh background */}
+        <div className="absolute inset-0 mesh-gradient opacity-40" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-4 animate-bounce-slow">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+            <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-semibold text-primary backdrop-blur-sm animate-bounce-slow">
+              <Sparkles className="h-4 w-4 animate-pulse" />
               Discover Our Solutions
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold font-display">
+            <h2 className="text-5xl md:text-6xl font-bold font-display">
               Featured <span className="gradient-text">Products</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-muted-foreground">
               From elegant interiors to weather-resistant exteriors
             </p>
           </div>
@@ -119,18 +120,15 @@ export default function Home() {
       </section>
 
       {/* Why Access */}
-      <section id="why-access" className="py-20 bg-muted/30 relative overflow-hidden">
-        {/* Animated background grid */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
-        </div>
+      <section id="why-access" className="py-24 bg-gradient-to-br from-accent/5 via-background to-primary/5 relative overflow-hidden">
+        {/* Animated background patterns */}
+        <div className="absolute inset-0 dots-pattern opacity-40" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold font-display">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+            <h2 className="text-5xl md:text-6xl font-bold font-display">
               Why Choose <span className="gradient-text">Access</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -144,15 +142,15 @@ export default function Home() {
               return (
                 <div
                   key={feature.title}
-                  className="group text-center space-y-4 p-8 rounded-lg bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-in relative overflow-hidden"
+                  className="group text-center space-y-4 p-8 rounded-2xl bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-3 animate-fade-in relative overflow-hidden"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Glow effect on hover */}
+                  {/* Gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10 space-y-4">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                      <Icon className="h-10 w-10 text-primary group-hover:scale-110 transition-transform" />
+                    <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      <Icon className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
                     </div>
                     <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -169,14 +167,19 @@ export default function Home() {
       <ProcessTimeline />
 
       {/* Testimonials */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+      <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        {/* Animated mesh background */}
+        <div className="absolute inset-0 mesh-gradient opacity-50" />
+        <div className="absolute top-20 right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold font-display">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+            <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-semibold text-primary backdrop-blur-sm animate-bounce-slow">
+              <Sparkles className="h-4 w-4 animate-pulse" />
+              Trusted by Bay Area Homeowners
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold font-display">
               What Our Clients <span className="gradient-text">Say</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -188,18 +191,18 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-xl bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 space-y-4 animate-fade-in transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden"
+                className="group p-8 rounded-2xl bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-primary space-y-4 animate-fade-in transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-3 relative overflow-hidden"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                {/* Shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-start justify-between">
-                    <div className="text-5xl text-primary/20 font-serif leading-none">"</div>
+                    <div className="text-6xl text-primary/30 font-serif leading-none">"</div>
                     <div className="flex space-x-1">
                       {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-5 h-5 text-accent animate-pulse" style={{ animationDelay: `${i * 100}ms` }} fill="currentColor" viewBox="0 0 20 20">
+                        <svg key={i} className="w-5 h-5 text-primary fill-primary animate-pulse" style={{ animationDelay: `${i * 100}ms` }} viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
@@ -208,15 +211,16 @@ export default function Home() {
                   <p className="text-muted-foreground italic leading-relaxed">
                     {testimonial.quote}
                   </p>
-                  <div className="pt-4 border-t border-border/50 flex items-center justify-between">
+                  <div className="pt-4 border-t border-primary/20 flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-foreground">{testimonial.author}</div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="font-bold text-foreground">{testimonial.author}</div>
+                      <div className="text-sm text-muted-foreground flex items-center gap-1">
+                        <MapPin className="h-3 w-3" />
                         {testimonial.location}
                       </div>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>

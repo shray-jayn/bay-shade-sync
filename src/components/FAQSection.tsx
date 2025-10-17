@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from './ui/accordion';
+import { Sparkles } from 'lucide-react';
 
 const faqs = [
   {
@@ -50,13 +51,21 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section id="faq" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
-            Frequently Asked Questions
+    <section id="faq" className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 mesh-gradient opacity-60" />
+      <div className="absolute inset-0 dots-pattern opacity-30" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-6">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-semibold text-primary backdrop-blur-sm animate-bounce-slow">
+            <Sparkles className="h-4 w-4 animate-pulse" />
+            Got Questions?
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold font-display">
+            Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground">
             Get answers to common questions about motorized shading
           </p>
         </div>
@@ -67,12 +76,12 @@ export const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-lg px-6 data-[state=open]:border-primary/50"
+                className="bg-gradient-to-br from-card to-card/80 border-2 border-primary/20 rounded-2xl px-6 data-[state=open]:border-primary data-[state=open]:shadow-xl data-[state=open]:shadow-primary/20 backdrop-blur-sm transition-all duration-300 hover:border-primary/40"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-4">
-                  <span className="font-semibold pr-4">{faq.question}</span>
+                <AccordionTrigger className="text-left hover:no-underline py-5 hover:text-primary transition-colors">
+                  <span className="font-bold pr-4">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-4">
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

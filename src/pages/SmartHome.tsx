@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { useQuoteForm } from '@/contexts/QuoteFormContext';
-import { Smartphone, Home, Zap, Sun, Moon, Wind } from 'lucide-react';
+import { Smartphone, Home, Zap, Sun, Moon, Wind, Sparkles, ArrowRight } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const platforms = [
   'Amazon Alexa',
@@ -49,19 +50,46 @@ const sceneExamples = [
 
 export default function SmartHome() {
   const { openQuoteForm } = useQuoteForm();
+  const ref1 = useScrollReveal();
+  const ref2 = useScrollReveal();
+  const ref3 = useScrollReveal();
+  const ref4 = useScrollReveal();
 
   return (
     <main className="min-h-screen">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4 text-center max-w-3xl space-y-6">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-lg bg-primary/10 mb-4">
-            <Home className="h-10 w-10 text-primary" />
+      <section className="relative py-24 bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden min-h-[70vh] flex items-center">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+        </div>
+        
+        {/* Floating tech icons */}
+        <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center animate-float backdrop-blur-sm border border-primary/20">
+          <Smartphone className="h-8 w-8 text-primary" />
+        </div>
+        <div className="absolute top-1/3 left-1/4 w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center animate-float backdrop-blur-sm border border-accent/20" style={{ animationDelay: '1s' }}>
+          <Home className="h-10 w-10 text-accent" />
+        </div>
+        <div className="absolute bottom-1/4 right-1/3 w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center animate-bounce-slow backdrop-blur-sm border border-primary/20">
+          <Zap className="h-7 w-7 text-primary" />
+        </div>
+
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-8 relative z-10">
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm mb-6 animate-pulse-glow border-2 border-primary/30">
+            <Home className="h-12 w-12 text-primary animate-pulse" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-display">
-            Smart Home Integration
+          
+          <div className="inline-block px-6 py-3 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-4 animate-bounce-slow backdrop-blur-sm">
+            <Sparkles className="inline h-4 w-4 mr-2 animate-pulse" />
+            Voice Control • Automation • Remote Access
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight animate-fade-in">
+            Smart Home <span className="gradient-text inline-block animate-gradient-shift" style={{ backgroundSize: '200% 200%' }}>Integration</span>
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Seamlessly integrate your motorized shading with Alexa, Google, HomeKit, Control4, and more
           </p>
         </div>
@@ -81,25 +109,37 @@ export default function SmartHome() {
       </section>
 
       {/* Motor Brands */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-display">
-              Premium Motor Partners
+      <section ref={ref1} className="scroll-reveal py-24 bg-muted/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <div className="inline-block px-4 py-2 bg-accent/10 rounded-full text-sm font-medium text-accent animate-pulse mb-4">
+              Trusted Partners
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-display">
+              Premium <span className="gradient-text">Motor Partners</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-muted-foreground">
               We work with the industry's leading motorization brands
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {motorBrands.map((brand) => (
+              {motorBrands.map((brand, index) => (
                 <div
                   key={brand}
-                  className="p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-all text-center"
+                  className="group p-8 rounded-xl bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all text-center hover:shadow-2xl hover:-translate-y-2 duration-300 relative overflow-hidden"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="font-semibold text-sm">{brand}</div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Zap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="font-bold text-foreground group-hover:text-primary transition-colors">{brand}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -108,25 +148,34 @@ export default function SmartHome() {
       </section>
 
       {/* Platforms */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-display">
-              Compatible Platforms
+      <section ref={ref2} className="scroll-reveal py-24 bg-background relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary animate-bounce-slow mb-4">
+              <Smartphone className="inline h-4 w-4 mr-2" />
+              Works With Your Favorite Platforms
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-display">
+              Compatible <span className="gradient-text">Platforms</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-muted-foreground">
               Connect with the smart home system you already use
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {platforms.map((platform) => (
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {platforms.map((platform, index) => (
                 <div
                   key={platform}
-                  className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all text-center flex items-center justify-center"
+                  className="group p-6 rounded-xl bg-card/50 backdrop-blur-sm border-2 border-border hover:border-primary/50 transition-all text-center flex items-center justify-center hover:shadow-2xl hover:scale-105 duration-300 relative overflow-hidden min-h-[100px]"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <span className="text-sm font-medium">{platform}</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="text-sm font-bold relative z-10 group-hover:text-primary transition-colors">{platform}</span>
+                  <Sparkles className="absolute top-2 right-2 h-4 w-4 text-accent opacity-0 group-hover:opacity-100 group-hover:rotate-12 transition-all" />
                 </div>
               ))}
             </div>
@@ -135,30 +184,47 @@ export default function SmartHome() {
       </section>
 
       {/* Scene Examples */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-display">
-              Smart Scene Examples
+      <section ref={ref3} className="scroll-reveal py-24 bg-muted/30 relative overflow-hidden">
+        <div className="absolute top-20 right-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <div className="inline-block px-4 py-2 bg-accent/10 rounded-full text-sm font-medium text-accent animate-bounce-slow mb-4">
+              <Sun className="inline h-4 w-4 mr-2 animate-pulse" />
+              Automation Examples
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-display">
+              Smart <span className="gradient-text">Scene Examples</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-xl text-muted-foreground">
               Create automated routines that adapt to your lifestyle
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {sceneExamples.map((scene) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {sceneExamples.map((scene, index) => {
               const Icon = scene.icon;
               return (
                 <div
                   key={scene.name}
-                  className="p-6 rounded-lg bg-card border border-border space-y-4 hover:border-primary/50 transition-all"
+                  className="group p-8 rounded-2xl bg-card/80 backdrop-blur-sm border-2 border-border space-y-6 hover:border-primary/50 transition-all hover:shadow-2xl hover:-translate-y-3 duration-500 relative overflow-hidden"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-muted ${scene.color}`}>
-                    <Icon className="h-6 w-6" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative z-10 space-y-6">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-${scene.color.replace('text-', '')}-500/20 to-transparent border border-${scene.color.replace('text-', '')}-500/30 group-hover:scale-110 transition-transform backdrop-blur-sm`}>
+                      <Icon className={`h-8 w-8 ${scene.color} group-hover:scale-110 transition-transform`} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors mb-2">{scene.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">{scene.description}</p>
+                    </div>
+                    <div className="pt-4 border-t border-border/50 flex items-center text-xs text-muted-foreground">
+                      <Sparkles className="h-3 w-3 mr-1 text-accent" />
+                      <span>Fully Customizable</span>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold font-display">{scene.name}</h3>
-                  <p className="text-sm text-muted-foreground">{scene.description}</p>
                 </div>
               );
             })}
@@ -167,70 +233,88 @@ export default function SmartHome() {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+      <section ref={ref4} className="scroll-reveal py-24 bg-background relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+              Powerful <span className="gradient-text">Features</span>
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                  <Zap className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-display">Voice Control</h3>
-                <p className="text-muted-foreground">
-                  "Alexa, close the living room shades" — hands-free control throughout your home.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                  <Smartphone className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-display">Remote Access</h3>
-                <p className="text-muted-foreground">
-                  Control your shades from anywhere using your smartphone or tablet.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                  <Sun className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-display">Automatic Scheduling</h3>
-                <p className="text-muted-foreground">
-                  Program shades to open and close based on sunrise, sunset, or your daily routine.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                  <Home className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold font-display">Whole-Home Scenes</h3>
-                <p className="text-muted-foreground">
-                  Coordinate shades with lighting, HVAC, and entertainment systems.
-                </p>
-              </div>
+              {[
+                { icon: Zap, title: 'Voice Control', description: '"Alexa, close the living room shades" — hands-free control throughout your home.', color: 'from-yellow-500/20' },
+                { icon: Smartphone, title: 'Remote Access', description: 'Control your shades from anywhere using your smartphone or tablet.', color: 'from-blue-500/20' },
+                { icon: Sun, title: 'Automatic Scheduling', description: 'Program shades to open and close based on sunrise, sunset, or your daily routine.', color: 'from-orange-500/20' },
+                { icon: Home, title: 'Whole-Home Scenes', description: 'Coordinate shades with lighting, HVAC, and entertainment systems.', color: 'from-purple-500/20' },
+              ].map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={feature.title}
+                    className="group p-8 rounded-2xl bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/50 space-y-6 transition-all hover:shadow-2xl hover:-translate-y-2 duration-500 relative overflow-hidden"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="relative z-10 space-y-4">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} to-transparent border border-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-all`}>
+                        <Icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold font-display group-hover:text-primary transition-colors">{feature.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
+      <section className="relative py-20 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 animate-gradient-shift" style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }} />
+        </div>
+
+        {/* Floating elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float" />
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce-slow" />
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-white/10 rounded-2xl rotate-45 animate-spin-slow" />
+
+        <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
+          <div className="inline-block p-4 bg-white/10 rounded-full backdrop-blur-sm animate-pulse mb-4">
+            <Home className="h-10 w-10 text-white" />
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display animate-fade-in">
             Ready to upgrade your smart home?
           </h2>
-          <p className="text-lg opacity-90 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Schedule a consultation to discuss your smart home integration and discover what's possible.
           </p>
           <Button
             onClick={() => openQuoteForm('smart-home-cta')}
             size="lg"
             variant="secondary"
-            className="rounded-lg text-lg px-8 py-6"
+            className="group rounded-lg text-lg px-10 py-7 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 animate-fade-in-scale relative overflow-hidden"
+            style={{ animationDelay: '0.2s' }}
           >
-            Schedule Smart Home Consultation
+            <span className="relative z-10 flex items-center">
+              Schedule Smart Home Consultation
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-20 transition-opacity" />
           </Button>
         </div>
       </section>

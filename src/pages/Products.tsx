@@ -2,6 +2,21 @@ import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { useQuoteForm } from '@/contexts/QuoteFormContext';
 import { Check } from 'lucide-react';
+import rollerShadesImg from '@/assets/product-roller-shades.jpg';
+import dualShadesImg from '@/assets/product-dual-shades.jpg';
+import shangriLaImg from '@/assets/product-shangri-la.jpg';
+import honeycombImg from '@/assets/product-honeycomb.jpg';
+import zipTrackImg from '@/assets/product-zip-track.jpg';
+import awningsImg from '@/assets/product-awnings.jpg';
+
+const productImages: Record<string, string> = {
+  'roller-shades': rollerShadesImg,
+  'dual-shades': dualShadesImg,
+  'shangri-la': shangriLaImg,
+  'honeycomb': honeycombImg,
+  'exterior-zip-track': zipTrackImg,
+  'awnings': awningsImg,
+};
 
 export default function Products() {
   const { openQuoteForm } = useQuoteForm();
@@ -31,15 +46,15 @@ export default function Products() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               {/* Image */}
               <div
-                className={`aspect-[4/3] rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center ${
+                className={`aspect-[4/3] rounded-lg overflow-hidden ${
                   index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'
                 }`}
               >
-                <div className="text-center p-8">
-                  <div className="text-6xl font-bold font-display text-primary/20">
-                    {product.name.substring(0, 2)}
-                  </div>
-                </div>
+                <img 
+                  src={productImages[product.id]} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Content */}

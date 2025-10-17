@@ -6,6 +6,21 @@ import { Button } from '@/components/ui/button';
 import { useQuoteForm } from '@/contexts/QuoteFormContext';
 import { Shield, Zap, Award, MapPin } from 'lucide-react';
 import { products } from '@/data/products';
+import rollerShadesImg from '@/assets/product-roller-shades.jpg';
+import dualShadesImg from '@/assets/product-dual-shades.jpg';
+import shangriLaImg from '@/assets/product-shangri-la.jpg';
+import honeycombImg from '@/assets/product-honeycomb.jpg';
+import zipTrackImg from '@/assets/product-zip-track.jpg';
+import awningsImg from '@/assets/product-awnings.jpg';
+
+const productImages: Record<string, string> = {
+  'roller-shades': rollerShadesImg,
+  'dual-shades': dualShadesImg,
+  'shangri-la': shangriLaImg,
+  'honeycomb': honeycombImg,
+  'exterior-zip-track': zipTrackImg,
+  'awnings': awningsImg,
+};
 
 const whyAccessFeatures = [
   {
@@ -46,6 +61,21 @@ const testimonials = [
     author: "Jennifer L.",
     location: "Mill Valley, CA"
   },
+  {
+    quote: "We love our honeycomb shades! They've noticeably reduced our energy bills and the motorization makes them so convenient. Great investment.",
+    author: "Michael T.",
+    location: "San Jose, CA"
+  },
+  {
+    quote: "The team was professional from start to finish. Our dual shades look stunning and the light control is exactly what we needed for our home office.",
+    author: "Amanda R.",
+    location: "Oakland, CA"
+  },
+  {
+    quote: "Being able to control all our shades from our phone while we're away is fantastic. The local service and warranty support give us confidence.",
+    author: "Robert & Lisa Chen",
+    location: "San Francisco, CA"
+  },
 ];
 
 export default function Home() {
@@ -74,6 +104,7 @@ export default function Home() {
                 name={product.name}
                 tagline={product.tagline}
                 description={product.description}
+                imageUrl={productImages[product.id]}
               />
             ))}
           </div>
@@ -129,7 +160,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}

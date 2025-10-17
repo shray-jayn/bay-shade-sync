@@ -1,14 +1,25 @@
 import { Button } from './ui/button';
 import { Phone, CheckCircle } from 'lucide-react';
 import { useQuoteForm } from '@/contexts/QuoteFormContext';
+import heroImage from '@/assets/hero-home.jpg';
 
 export const Hero = () => {
   const { openQuoteForm } = useQuoteForm();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/30 pt-20 pb-24 lg:pt-28 lg:pb-32">
+    <section className="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroImage} 
+          alt="Modern Bay Area home with motorized blinds" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+      </div>
+      
       {/* Animated sunlight sweep */}
-      <div className="absolute inset-0 overflow-hidden opacity-40">
+      <div className="absolute inset-0 overflow-hidden opacity-20 z-[1]">
         <div
           className="absolute inset-y-0 w-1/3 animate-sunlight-sweep"
           style={{

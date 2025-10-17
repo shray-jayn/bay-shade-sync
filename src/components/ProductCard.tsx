@@ -16,21 +16,11 @@ export const ProductCard = ({ name, tagline, description, imageUrl }: ProductCar
   return (
     <Card className="group overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg rounded-lg">
       <div className="aspect-[4/3] bg-muted overflow-hidden">
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
-            <div className="text-center p-8">
-              <div className="text-4xl font-bold font-display text-primary/20">
-                {name.substring(0, 2)}
-              </div>
-            </div>
-          </div>
-        )}
+        <img
+          src={imageUrl || ''}
+          alt={name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
       </div>
       <CardContent className="p-6 space-y-3">
         <h3 className="text-xl font-bold font-display">{name}</h3>

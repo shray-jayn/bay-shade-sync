@@ -31,6 +31,21 @@ const faqs = [
     answer:
       'Because we manufacture locally in the Bay Area, our lead times are 2-4 weeks for most projects. Complex or large-scale installations may take slightly longer. We\'ll provide an accurate timeline during your consultation.',
   },
+  {
+    question: 'Do the shades work during power outages?',
+    answer:
+      'Battery-powered shades will continue to operate during outages. For hardwired systems, we can integrate with your home\'s backup power. Many of our motors also have manual override capabilities.',
+  },
+  {
+    question: 'Can I add motorization to my existing blinds?',
+    answer:
+      'In most cases, it\'s more cost-effective to install new motorized blinds than retrofit existing ones. However, we\'ll evaluate your current blinds during the consultation to determine the best approach.',
+  },
+  {
+    question: 'How long do the motors last?',
+    answer:
+      'Premium motors from Somfy and Lutron typically last 10-15 years with normal use. All our installations come with manufacturer warranties and local service support.',
+  },
 ];
 
 export const FAQSection = () => {

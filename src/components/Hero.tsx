@@ -18,8 +18,8 @@ export const Hero = () => {
             style={{ transform: 'translateY(var(--scroll-offset, 0))' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
       </div>
       
       {/* Animated sunlight sweep */}
@@ -44,19 +44,19 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
-          <div className="animate-fade-in-scale inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-3 backdrop-blur-sm">
-            <Sparkles className="h-4 w-4 text-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary">Bay Area's Premier Motorized Shading</span>
+          <div className="animate-fade-in-scale inline-flex items-center space-x-2 bg-primary/30 border border-primary/40 rounded-full px-6 py-3 backdrop-blur-md shadow-2xl">
+            <Sparkles className="h-4 w-4 text-primary animate-pulse drop-shadow-lg" />
+            <span className="text-sm font-medium text-primary drop-shadow-lg">Bay Area's Premier Motorized Shading</span>
           </div>
 
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight drop-shadow-2xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)' }}>
               Smart Motorized Blinds & Shading for{' '}
-              <span className="gradient-text inline-block animate-gradient-shift" style={{ backgroundSize: '200% 200%' }}>
+              <span className="gradient-text inline-block animate-gradient-shift drop-shadow-2xl" style={{ backgroundSize: '200% 200%', textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)' }}>
                 Bay Area Homes
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed drop-shadow-xl backdrop-blur-[1px]" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3)' }}>
               Custom-built interior and exterior solutions — seamlessly integrated with your smart home.
             </p>
           </div>
@@ -93,11 +93,11 @@ export const Hero = () => {
             ].map((badge, index) => (
               <div
                 key={badge.text}
-                className="flex items-center space-x-2 text-foreground bg-card/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border/50 hover:border-primary/50 hover:scale-110 transition-all duration-300"
+                className="flex items-center space-x-2 text-foreground bg-card/80 backdrop-blur-md px-4 py-2 rounded-full border-2 border-primary/40 hover:border-primary hover:scale-110 transition-all duration-300 shadow-xl"
                 style={{ animationDelay: `${0.5 + index * 0.1}s` }}
               >
-                <badge.icon className="h-5 w-5 text-primary animate-pulse" />
-                <span className="font-medium">{badge.text}</span>
+                <badge.icon className="h-5 w-5 text-primary animate-pulse drop-shadow-lg" />
+                <span className="font-medium drop-shadow-md">{badge.text}</span>
               </div>
             ))}
           </div>

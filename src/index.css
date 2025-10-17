@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 10%;
 
-    --primary: 200 80% 40%;
+    --primary: 217 89% 62%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 90%;
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 220 14% 90%;
     --muted-foreground: 222 30% 40%;
 
-    --accent: 28 90% 54%;
+    --accent: 210 100% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -35,16 +35,16 @@ All colors MUST be HSL.
 
     --border: 220 14% 86%;
     --input: 220 14% 86%;
-    --ring: 200 80% 40%;
+    --ring: 217 89% 62%;
 
     --surface: 0 0% 100%;
 
     --radius: 0.5rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 80% 40%), hsl(200 90% 50%));
-    --gradient-accent: linear-gradient(135deg, hsl(28 90% 54%), hsl(35 95% 60%));
-    --gradient-sunlight: linear-gradient(90deg, transparent 0%, hsl(28 90% 54% / 0.15) 50%, transparent 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217 89% 62%), hsl(217 95% 72%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 100% 65%), hsl(220 100% 75%));
+    --gradient-sunlight: linear-gradient(90deg, transparent 0%, hsl(217 89% 62% / 0.15) 50%, transparent 100%);
 
     /* Shadows */
     --shadow-subtle: 0 1px 3px hsl(222 47% 10% / 0.08);
@@ -77,6 +77,38 @@ All colors MUST be HSL.
     50% { transform: translateY(-20px); }
   }
   
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-up {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -95,10 +127,28 @@ All colors MUST be HSL.
   }
 
   /* Parallax */
-  .parallax {
-    transform: translateZ(0);
-    will-change: transform;
-  }
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.stagger-item {
+  opacity: 0;
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
 }
 
 @layer base {

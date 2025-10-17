@@ -18,8 +18,8 @@ export const Hero = () => {
             style={{ transform: 'translateY(var(--scroll-offset, 0))' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
       </div>
       
       {/* Animated sunlight sweep */}

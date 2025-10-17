@@ -4,6 +4,7 @@ import { cities } from '@/data/cities';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, Sparkles } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import cityLivingRoom from '@/assets/city-living-room.jpg';
 
 export default function Locations() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -114,29 +115,39 @@ export default function Locations() {
       </section>
 
       {/* Service Area Info */}
-      <section className="relative py-20 bg-gradient-to-br from-muted/50 via-background to-muted/50 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-10 left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
+      <section className="relative py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95 z-10" />
+          <img 
+            src={cityLivingRoom} 
+            alt="Bay Area home with motorized shades"
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        <div className="container mx-auto px-4 text-center max-w-4xl space-y-8 relative z-10">
-          <div className="inline-block p-4 bg-primary/10 rounded-full backdrop-blur-sm animate-bounce-slow mb-4">
-            <MapPin className="h-8 w-8 text-primary" />
+        <div className="absolute inset-0 opacity-30 z-20">
+          <div className="absolute top-10 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 text-center max-w-4xl space-y-8 relative z-30">
+          <div className="inline-block p-5 bg-primary/20 rounded-full backdrop-blur-md animate-bounce-slow mb-4 border-2 border-primary/30 shadow-xl">
+            <MapPin className="h-10 w-10 text-primary" />
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
+          <h2 className="text-4xl md:text-5xl font-bold font-display drop-shadow-lg">
             Don't see your <span className="gradient-text">city listed?</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto drop-shadow-md">
             We serve the entire San Francisco Bay Area. If your city isn't listed above, 
             give us a call and we'll be happy to discuss service in your area.
           </p>
           <a 
             href="tel:+16578951094"
-            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl group"
+            className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/50 group"
           >
-            <MapPin className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            <MapPin className="h-6 w-6 mr-2 group-hover:scale-110 transition-transform" />
             (657) 895-1094
           </a>
         </div>

@@ -12,6 +12,8 @@ import shangriLaImg from '@/assets/product-shangri-la.jpg';
 import honeycombImg from '@/assets/product-honeycomb.jpg';
 import zipTrackImg from '@/assets/product-zip-track.jpg';
 import awningsImg from '@/assets/product-awnings.jpg';
+import consultationScene from '@/assets/consultation-scene.jpg';
+import localManufacturing from '@/assets/local-manufacturing.jpg';
 
 const productImages: Record<string, string> = {
   'roller-shades': rollerShadesImg,
@@ -136,6 +138,24 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Image showcase */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="relative group rounded-3xl overflow-hidden shadow-2xl">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl opacity-50 group-hover:opacity-75 transition-opacity blur" />
+              <div className="relative">
+                <img 
+                  src={localManufacturing} 
+                  alt="Local Bay Area manufacturing"
+                  className="w-full h-auto rounded-3xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                  <p className="text-2xl font-bold text-white drop-shadow-lg">Locally Manufactured in Belmont, CA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyAccessFeatures.map((feature, index) => {
               const Icon = feature.icon;
@@ -235,9 +255,19 @@ export default function Home() {
       <FAQSection />
 
       {/* CTA Band */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-accent/90 z-10" />
+          <img 
+            src={consultationScene} 
+            alt="Consultation scene"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 z-20">
           <div className="absolute inset-0 animate-gradient-shift" style={{
             backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
             backgroundSize: '50px 50px',
@@ -246,19 +276,19 @@ export default function Home() {
         </div>
 
         {/* Floating shapes */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float" />
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce-slow" />
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-lg rotate-45 animate-spin-slow" />
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float z-20" />
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce-slow z-20" />
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-lg rotate-45 animate-spin-slow z-20" />
 
-        <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
-          <div className="inline-block p-3 bg-white/10 rounded-full backdrop-blur-sm animate-pulse mb-4">
+        <div className="container mx-auto px-4 text-center space-y-8 relative z-30">
+          <div className="inline-block p-3 bg-white/20 rounded-full backdrop-blur-sm animate-pulse mb-4 border-2 border-white/30">
             <Sparkles className="h-8 w-8 text-white" />
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display animate-fade-in">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display animate-fade-in drop-shadow-lg">
             Ready for your custom quote?
           </h2>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed animate-fade-in drop-shadow-md" style={{ animationDelay: '0.1s' }}>
             Let's discuss your project and create the perfect shading solution for your Bay Area home.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
@@ -266,16 +296,16 @@ export default function Home() {
               onClick={() => openQuoteForm('cta-band')}
               size="lg"
               variant="secondary"
-              className="group rounded-lg text-lg px-10 py-7 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 relative overflow-hidden"
+              className="group rounded-xl text-lg px-10 py-7 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 relative overflow-hidden bg-white text-primary hover:bg-white/90"
             >
-              <span className="relative z-10">Get Your Free Quote</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-20 transition-opacity" />
+              <span className="relative z-10 font-bold">Get Your Free Quote</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Button>
             <a href="tel:+16578951094">
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm rounded-lg text-lg px-10 py-7 hover:scale-110 transition-all duration-300"
+                className="bg-white/20 border-2 border-white/50 text-white hover:bg-white hover:text-primary backdrop-blur-sm rounded-xl text-lg px-10 py-7 hover:scale-110 transition-all duration-300 shadow-xl"
               >
                 <Phone className="h-5 w-5 mr-2 animate-wiggle" />
                 Call (657) 895-1094

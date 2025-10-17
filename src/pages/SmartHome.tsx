@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { useQuoteForm } from '@/contexts/QuoteFormContext';
 import { Smartphone, Home, Zap, Sun, Moon, Wind, Sparkles, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import smartControl from '@/assets/smart-control.jpg';
 
 const platforms = [
   'Amazon Alexa',
@@ -292,9 +293,19 @@ export default function SmartHome() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
+      <section className="relative py-28 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-accent/90 z-10" />
+          <img 
+            src={smartControl} 
+            alt="Smart home control"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         {/* Animated background */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 z-20">
           <div className="absolute inset-0 animate-gradient-shift" style={{
             backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
             backgroundSize: '50px 50px',
@@ -302,33 +313,32 @@ export default function SmartHome() {
         </div>
 
         {/* Floating elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float" />
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce-slow" />
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-white/10 rounded-2xl rotate-45 animate-spin-slow" />
+        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float z-20" />
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/5 rounded-full animate-bounce-slow z-20" />
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-white/10 rounded-2xl rotate-45 animate-spin-slow z-20" />
 
-        <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
-          <div className="inline-block p-4 bg-white/10 rounded-full backdrop-blur-sm animate-pulse mb-4">
+        <div className="container mx-auto px-4 text-center space-y-8 relative z-30">
+          <div className="inline-block p-4 bg-white/20 rounded-full backdrop-blur-sm animate-pulse mb-4 border-2 border-white/30">
             <Home className="h-10 w-10 text-white" />
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display animate-fade-in">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display animate-fade-in drop-shadow-lg">
             Ready to upgrade your smart home?
           </h2>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed animate-fade-in drop-shadow-md" style={{ animationDelay: '0.1s' }}>
             Schedule a consultation to discuss your smart home integration and discover what's possible.
           </p>
           <Button
             onClick={() => openQuoteForm('smart-home-cta')}
             size="lg"
             variant="secondary"
-            className="group rounded-lg text-lg px-10 py-7 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 animate-fade-in-scale relative overflow-hidden"
+            className="group rounded-xl text-lg px-10 py-7 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 animate-fade-in-scale relative overflow-hidden bg-white text-primary hover:bg-white/90"
             style={{ animationDelay: '0.2s' }}
           >
-            <span className="relative z-10 flex items-center">
+            <span className="relative z-10 flex items-center font-bold">
               Schedule Smart Home Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-20 transition-opacity" />
           </Button>
         </div>
       </section>

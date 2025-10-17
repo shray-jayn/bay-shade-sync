@@ -9,6 +9,7 @@ import shangriLaImg from '@/assets/product-shangri-la.jpg';
 import honeycombImg from '@/assets/product-honeycomb.jpg';
 import zipTrackImg from '@/assets/product-zip-track.jpg';
 import awningsImg from '@/assets/product-awnings.jpg';
+import outdoorShades from '@/assets/outdoor-shades.jpg';
 
 const productImages: Record<string, string> = {
   'roller-shades': rollerShadesImg,
@@ -206,17 +207,27 @@ export default function Products() {
       })}
 
       {/* Bottom CTA */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/5 rounded-full animate-float" />
+      <section className="relative py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95 z-10" />
+          <img 
+            src={outdoorShades} 
+            alt="Outdoor motorized shades"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        <div className="container mx-auto px-4 text-center space-y-8 relative z-10">
-          <div className="inline-block p-3 bg-primary/10 rounded-full backdrop-blur-sm animate-bounce-slow mb-4">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow z-20" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow z-20" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/5 rounded-full animate-float z-20" />
+
+        <div className="container mx-auto px-4 text-center space-y-8 relative z-30">
+          <div className="inline-block p-4 bg-primary/20 rounded-full backdrop-blur-sm animate-bounce-slow mb-4 border-2 border-primary/30">
             <Sparkles className="h-8 w-8 text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-display animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-bold font-display animate-fade-in">
             Not sure which option is <span className="gradient-text">right for you?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>

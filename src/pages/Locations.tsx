@@ -118,7 +118,7 @@ export default function Locations() {
       <section className="relative py-28 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/50 to-background/60 z-10" />
           <img 
             src={cityLivingRoom} 
             alt="Bay Area home with motorized shades"

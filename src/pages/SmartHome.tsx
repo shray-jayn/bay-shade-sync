@@ -296,7 +296,7 @@ export default function SmartHome() {
       <section className="relative py-28 bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-accent/90 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/50 to-accent/60 z-10" />
           <img 
             src={smartControl} 
             alt="Smart home control"

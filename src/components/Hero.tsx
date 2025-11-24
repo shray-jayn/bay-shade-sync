@@ -80,7 +80,7 @@ export const Hero = () => {
                 className="rounded-lg text-lg px-10 py-7 border-2 hover:border-primary hover:text-primary hover:scale-105 transition-all duration-300 backdrop-blur-sm bg-background/50"
               >
                 <Phone className="h-5 w-5 mr-2 animate-wiggle" />
-                (657) 895-1094
+                 (650) 232-9877
               </Button>
             </a>
           </div>

@@ -308,7 +308,7 @@ export default function Home() {
                 className="bg-white/20 border-2 border-white/50 text-white hover:bg-white hover:text-primary backdrop-blur-sm rounded-xl text-lg px-10 py-7 hover:scale-110 transition-all duration-300 shadow-xl"
               >
                 <Phone className="h-5 w-5 mr-2 animate-wiggle" />
-                Call (657) 895-1094
+                Call  (650) 232-9877
               </Button>
             </a>
           </div>

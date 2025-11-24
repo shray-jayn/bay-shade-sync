@@ -71,7 +71,7 @@ export const LocationCard = ({ name, slug, region }: LocationCardProps) => {
         <div className="pt-4 border-t border-border space-y-3">
           <div className="flex items-center justify-center space-x-2 text-sm font-semibold text-foreground bg-muted/50 py-2 rounded-lg">
             <Phone className="h-4 w-4 text-primary animate-pulse" />
-            <span>(657) 895-1094</span>
+            <span> (650) 232-9877</span>
           </div>
           
           <div className="grid grid-cols-2 gap-2">

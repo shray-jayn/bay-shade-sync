@@ -28,7 +28,7 @@ export const SiteFooter = () => {
               className="flex items-center space-x-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4" />
-              <span>(657) 895-1094</span>
+              <span> (650) 232-9877</span>
             </a>
           </div>
 

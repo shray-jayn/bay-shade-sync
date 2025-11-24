@@ -134,7 +134,7 @@ export const QuoteFormModal = () => {
               </Button>
               <a href="tel:+16578951094">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg w-full sm:w-auto">
-                  Call Now: (657) 895-1094
+                  Call Now:  (650) 232-9877
                 </Button>
               </a>
             </div>

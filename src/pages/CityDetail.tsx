@@ -124,7 +124,7 @@ export default function CityDetail() {
                   className="rounded-xl border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all hover:scale-105 text-lg px-8 py-6 group"
                 >
                   <Phone className="h-5 w-5 mr-2 group-hover:rotate-12 transition-transform" />
-                  (657) 895-1094
+                   (650) 232-9877
                 </Button>
               </a>
             </div>
@@ -278,7 +278,7 @@ export default function CityDetail() {
               {[
                 {
                   q: `Do you serve all neighborhoods in ${city.name}?`,
-                  a: `Yes! We provide service throughout ${city.name} and the surrounding ${city.region} area. Call us at (657) 895-1094 to confirm service in your specific neighborhood.`
+                  a: `Yes! We provide service throughout ${city.name} and the surrounding ${city.region} area. Call us at  (650) 232-9877 to confirm service in your specific neighborhood.`
                 },
                 {
                   q: `What's the typical timeline for a project in ${city.name}?`,
@@ -362,7 +362,7 @@ export default function CityDetail() {
                 className="rounded-xl text-lg px-10 py-7 border-2 border-white/30 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition-all hover:scale-105 group"
               >
                 <Phone className="h-5 w-5 mr-2 group-hover:wiggle" />
-                (657) 895-1094
+                 (650) 232-9877
               </Button>
             </a>
           </div>
